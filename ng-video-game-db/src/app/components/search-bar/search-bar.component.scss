@@ -21,7 +21,7 @@
   &-input {
     margin-left: 10px;
     padding: 10px;
-    width: 300px;
+    width: 600px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     outline: none;
@@ -31,7 +31,7 @@
   &-button {
     border: none;
     outline: none;
-    background: #3f51b5;
+    background: #831725;
     padding: 10px;
     border-left: 1px solid rgba(0, 0, 0, 0.3);
     border-top-right-radius: 5px;
@@ -42,7 +42,7 @@
     cursor: pointer;
 
     &:hover {
-      color: #3f51b5;
+      color: #0d1b66;
       background-color: #fff;
       border: 1px solid #3f51b5;
     }
