@@ -1,30 +1,50 @@
 <div class="filters">
     <mat-form-field>
-    <mat-label>Sort</mat-label>
-    <mat-select
-    panelClass="sort-select"
-    
-    >
-    <mat-option value="name">Name</mat-option>
-    <mat-option value="-released">Released</mat-option>
-    <mat-option value="-added">Added</mat-option>
-    <mat-option value="-created">Created</mat-option>
-    <mat-option value="-updated">Updated</mat-option>
-    <mat-option value="-rating">Rating</mat-option>
-    <mat-option value="metacritic">Metacritic</mat-option>
-</mat-select>
-</mat-form-field>
+        <mat-label>Sort</mat-label>
+        <mat-select  
+        panelClass="sort-select" 
+        [(ngModel)]="sort"
+        (selectionChange)="searchGames(sort)"
+        >
+
+            <mat-option value="name">Name</mat-option>
+            <mat-option value="-released">Released</mat-option>
+            <mat-option value="-added">Added</mat-option>
+            <mat-option value="-created">Created</mat-option>
+            <mat-option value="-updated">Updated</mat-option>
+            <mat-option value="-rating">Rating</mat-option>
+            <mat-option value="metacritic">Metacritic</mat-option>
+        </mat-select>
+    </mat-form-field>
 </div>
 <div class="games">
-    <div class="game">
-        <div class="game-thumb-container">
-            <img src="https://www.pexels.com/photo/technology-keyboard-lighting-candy-3165335/" alt="thumbnail" class="game-thumbnail"/>
-        </div>
-        <div class="game-description">
-            <p class="game-name">Name</p>
-            <div class="game-platforms">
-                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.epicgames.com%2Fstore%2Fen-US%2Fp%2Fgrand-theft-auto-v&psig=AOvVaw0zjV749ocDtzaTaC3tcgoz&ust=1624723740343000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCNCjsN6Vs_ECFQAAAAAdAAAAABAD" alt="gameplatform" class="game-platform" alt="slug">
+    <ng-container *ngFor="let game of games">
+        <div class="game">
+
+            <div class="game-thumb-container">
+                <img 
+                    *ngIf="game.background_image" 
+                    src="{{ game.background_image }}" 
+                    alt="thumbnail"
+                    class="game-thumbnail" />
+                <p *ngIf="!game.background_image">No Image</p>
             </div>
+            <div class="game-description">
+                <p class="game-name">{{ game.name }}</p>
+                <div class="game-platforms">
+                    <img 
+                    *ngFor="let gamePlatform of game.parent_platform"
+                    src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+                        alt="gameplatform" class="game-platform" alt="{{ gamePlatform.platform.slug }}">
+                </div>
+            </div>
+
+
+
+
+
+
+
         </div>
-    </div>
+    </ng-container>
 </div>
