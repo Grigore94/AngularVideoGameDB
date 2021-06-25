@@ -21,7 +21,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-eximport { DetailsComponent } from './components/details/details.component';
-ports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
