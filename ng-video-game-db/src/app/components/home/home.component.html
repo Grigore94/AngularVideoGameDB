@@ -35,8 +35,8 @@
                 <div class="game-platforms">
                     <img 
                     *ngFor="let gamePlatform of game.parent_platform"
-                    src="assets/images/platforms/{{ gamePlatform.platform.name }}.svg"
-                        alt="gameplatform" class="game-platform" alt="{{ gamePlatform.platform.name }}">
+                    src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+                        alt="gameplatform" class="game-platform" alt="{{ gamePlatform.platform.slug }}">
                 </div>
             </div>
 

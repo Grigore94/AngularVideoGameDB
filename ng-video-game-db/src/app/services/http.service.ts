@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment as env } from 'src/environments/environment';
 import { forkJoin, Observable } from 'rxjs';
@@ -9,9 +9,6 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HttpService {
-  getGameDetails(id: string) {
-    throw new Error('Method not implemented.');
-  }
 
   constructor(private http: HttpClient) { }
   getGameList(
@@ -19,14 +16,14 @@ export class HttpService {
     search?: string
   ): Observable<APIResponse<Game>> {
     let params = new HttpParams().set("ordering", ordering);
-    if(search) {
+    if (search) {
       params = new HttpParams().set("ordering", ordering).set("search", search)
     }
     return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
       params: params,
     })
   }
-  getgameDetails(id: string): Observable<Game>  {
+  getGameDetails(id: string): Observable<Game> {
     const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);
     const gameTrailerRequest = this.http.get(`${env.BASE_URL}/games/${id}/movies`);
     const gameScreenShotsRequest = this.http.get(`${env.BASE_URL}/game/${id}/screenshots`);
@@ -37,15 +34,15 @@ export class HttpService {
       gameScreenShotsRequest,
       gameTrailerRequest,
     }).pipe(
-map((resp: any) => {
-  return {
-    ...resp["gameInfoRequest"],
-    screenshots: resp["gameScreenshotsrequest"]?.resutls,
-    trailer: resp["gameTrailerRequest"]?.results,
-  }
-})
+      map((resp: any) => {
+        return {
+          ...resp["gameInfoRequest"],
+          screenshots: resp["gameScreenshotsrequest"]?.resutls,
+          trailer: resp["gameTrailerRequest"]?.results,
+        }
+      })
 
     )
- 
+
   }
 }

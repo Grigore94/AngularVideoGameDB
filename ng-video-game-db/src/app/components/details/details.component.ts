@@ -17,24 +17,24 @@ export class DetailsComponent implements OnInit {
   gameSub!: Subscription
 
   constructor(
-    private ActivatedRoute: ActivatedRoute,
-    private HttpService: HttpService,
+    private activatedRoute: ActivatedRoute,
+    private httpService: HttpService,
   ) { }
 
   ngOnInit(): void {
-    this.routeSub = this.ActivatedRoute.params.subscribe((params: Params) => {
+    this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       this.gameId = params["id"];
       this.getGameDetails(this.gameId);
     })
   }
-  getGameDetails(id: string): void {
-    this.gameSub = this.HttpService
+  getGameDetails(id: string) {
+    this.gameSub = this.httpService
       .getGameDetails(id)
       .subscribe((gameResp: Game) => {
         this.game = gameResp;
 
         setTimeout(() => {
-          this.gameRating = this.game.metacritic;
+          this.gameRating = this.game.metacritic
         }, 1000)
       })
   }
