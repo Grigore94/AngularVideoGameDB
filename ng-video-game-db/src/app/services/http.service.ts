@@ -8,6 +8,9 @@ import { APIResponse, Game } from './modules';
   providedIn: 'root'
 })
 export class HttpService {
+  getGameDetails(id: string) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http: HttpClient) { }
   getGameList(
