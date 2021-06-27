@@ -9,10 +9,10 @@ export interface Game {
     genres: Array<Genre>;
     parent_platform: Array<ParentPlatform>;
     publisher: Array<Publishers>;
-    ratings: Array<Raiting>;
+    ratings: Array<Rating>;
     screenshots: Array<Screenshots>;
     trailers: Array<Trailer>;
-    slug: string;
+    id: string;
 
 }
 
@@ -25,12 +25,13 @@ interface Genre {
 interface ParentPlatform {
     platform: {
         name: string;
+        slug: string;
     }
 }
 interface Publishers {
 name: string;
 }
-interface Raiting {
+interface Rating {
     id: number;
     count: number;
     title: string;

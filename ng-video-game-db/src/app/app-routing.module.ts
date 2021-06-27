@@ -10,11 +10,11 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: "search/game-search",
+    path: "search/:game-search",
     component: HomeComponent,
   },
   {
-    path: "services/:id",
+    path: "details/:id",
     component: DetailsComponent,
   }
 ];

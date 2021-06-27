@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Game, APIResponse } from 'src/app/services/modules';
+import { Game, APIResponse } from 'src/app/modules';
 import { HttpService } from '../../services/http.service';
 
 @Component({
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     })
   }
   searchGames(sort: string, search?: string): void {
-    this.httpService
+    this.gameSub = this.httpService
       .getGameList(sort, search)
       .subscribe((gameList: APIResponse<Game>) => {
         this.games = gameList.results;

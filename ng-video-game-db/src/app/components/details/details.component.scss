@@ -22,16 +22,18 @@
             font-weight: 700;
             font-size: 24px;
         }
+    }
         .game-gauge{
-            position: relative;
+            position: absolute;
             top: 50px;
             right: 0;
+
+            &-label{
+                font-size: 20px;
+                color: #fff;
+                position: relative;
+                bottom: 60px;
         }
-        &-label{
-            font-size: 20px;
-            color: #fff;
-            position: relative;
-            bottom: 6px;
         }
     }
     .game {
@@ -47,7 +49,7 @@
         &-content {
             text-align: center;
             position: relative;
-            top: -250px;
+            top: -200px;
         }
         &-header{
             &-title {
@@ -66,5 +68,5 @@
                 font-weight: 700;
             }
         }
-    }
+    
 }

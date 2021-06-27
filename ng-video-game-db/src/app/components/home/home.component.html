@@ -1,11 +1,7 @@
 <div class="filters">
     <mat-form-field>
         <mat-label>Filter</mat-label>
-        <mat-select  
-        panelClass="sort-select" 
-        [(ngModel)]="sort"
-        (selectionChange)="searchGames(sort)"
-        >
+        <mat-select panelClass="sort-select" [(ngModel)]="sort" (selectionChange)="searchGames(sort)">
 
             <mat-option value="name">Name</mat-option>
             <mat-option value="-released">Released</mat-option>
@@ -23,20 +19,16 @@
         <div class="game" (click)="openGameDetails(game.id)">
 
             <div class="game-thumb-container">
-                <img 
-                    *ngIf="game.background_image" 
-                    src="{{ game.background_image }}" 
-                    alt="thumbnail"
+                <img *ngIf="game.background_image" src="{{ game.background_image }}" alt="thumbnail"
                     class="game-thumbnail" />
                 <p *ngIf="!game.background_image">No Image</p>
             </div>
             <div class="game-description">
                 <p class="game-name">{{ game.name }}</p>
                 <div class="game-platforms">
-                    <img 
-                    *ngFor="let gamePlatform of game.parent_platform"
-                    src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
-                        alt="gameplatform" class="game-platform" alt="{{ gamePlatform.platform.slug }}">
+                    <img *ngFor="let gamePlatform of game.parent_platform"
+                        src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg" alt="gameplatform"
+                        class="game-platform">
                 </div>
             </div>
 
