@@ -1,6 +1,6 @@
 <div class="details">
     <div class="game-banner">
-        <img class="game-banner-img" src="{{ game.background_image }}" alt="">
+        <img class="game-banner-img" src="{{ game.background_image }}" alt="backgroundImage">
     </div>
     <div class="game-content">
         <div class="details-wrapper">
@@ -14,15 +14,15 @@
                             *ngIf="!last">,</span></span>
                 </p>
                 <div class="game-gauge">
-                    <mwl-gauge class="two" [max]="100" [dialStartAngle]="0" [dialEndAngle]="0" [value]="gameRating"
-                        [animated]="true" [color]="getColor" [animationDuration]=2>
+                    <mwl-gauge class="two" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="gameRating"
+                        [animated]="true" [color]="getColor" [animationDuration]="2">
                     </mwl-gauge>
                     <a class="game-gauge-label" target="_blank" href="{{ game.metacritic_url}}">
                         Metacritic</a>
                 </div>
             </div>
             <!-- sharing data between parent and child component -->
-            <app-game-tabs>[game]="game</app-game-tabs>
+            <app-game-tabs [game]="game"></app-game-tabs>
         </div>
     </div>
 </div>

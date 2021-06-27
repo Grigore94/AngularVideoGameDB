@@ -18,7 +18,7 @@
             stroke-width: 13;
         }
         .value-text{
-            fill: #fff;
+            fill: rgb(12, 12, 12);
             font-weight: 700;
             font-size: 24px;
         }
@@ -30,7 +30,7 @@
 
             &-label{
                 font-size: 20px;
-                color: #fff;
+                color: rgb(12, 12, 12);
                 position: relative;
                 bottom: 60px;
         }
@@ -54,17 +54,17 @@
         &-header{
             &-title {
                 font-size: 70px;
-                color: #fff;
+                color: rgb(12, 12, 12);
                 font-weight: 700;
                 line-height:70px;
                 white-space: nowrap;
             }
             &-release-date{
-                color: #fff;
+                color: rgb(12, 12, 12);
                 font-weight: 700;
             }
             &-genres{
-                color: #fff;
+                color: rgb(12, 12, 12);
                 font-weight: 700;
             }
         }

@@ -25,20 +25,20 @@ export class HttpService {
   }
   getGameDetails(id: string): Observable<Game> {
     const gameInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);
-    const gameTrailerRequest = this.http.get(`${env.BASE_URL}/games/${id}/movies`);
+    const gameTrailersRequest = this.http.get(`${env.BASE_URL}/games/${id}/movies`);
     const gameScreenShotsRequest = this.http.get(`${env.BASE_URL}/games/${id}/screenshots`);
 
 
     return forkJoin({
       gameInfoRequest,
+      gameTrailersRequest,
       gameScreenShotsRequest,
-      gameTrailerRequest,
     }).pipe(
       map((resp: any) => {
         return {
           ...resp["gameInfoRequest"],
-          screenshots: resp["gameScreenshotsrequest"]?.resutls,
-          trailer: resp["gameTrailerRequest"]?.results,
+          screenshots: resp["gameScreenshotsRequest"]?.resutls,
+          trailers: resp["gameTrailersRequest"]?.results,
         }
       })
 

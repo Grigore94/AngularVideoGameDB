@@ -22,19 +22,19 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.routeSub! = this.activatedRoute.params.subscribe((params: Params) => {
-      this.gameId! = params["id"];
-      this.getGameDetails(this.gameId!);
+    this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
+      this.gameId = params["id"];
+      this.getGameDetails(this.gameId);
     })
   }
   getGameDetails(id: string) {
-    this.gameSub! = this.httpService
+    this.gameSub = this.httpService
       .getGameDetails(id)
       .subscribe((gameResp: Game) => {
-        this.game! = gameResp;
+      this.game = gameResp;
 
         setTimeout(() => {
-          this.gameRating = this.game!.metacritic
+          this.gameRating = this.game.metacritic
         }, 1000)
       })
   }
